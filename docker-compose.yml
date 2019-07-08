@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  udemy.com-graphql-node-api:
+    image: node
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
