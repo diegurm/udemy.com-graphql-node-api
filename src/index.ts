@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const port = normalizePort(process.env.port || 3000);
 
 db.sequelize.sync().then(() => {
-  server.listen(3000);
+  server.listen(port);
   server.on('listening', onListening(server));
   server.on('error', onError(server));
 });

@@ -1,10 +1,22 @@
-version: '2.1'
-
+version: '3.3'
 services:
-  udemy.com-graphql-node-api:
-    image: node
-    build: .
+  db:
+    image: mysql:latest
+    restart: always
     environment:
-      NODE_ENV: production
+      MYSQL_DATABASE: 'graphql_blog_development'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: '123456789'
+      MYSQL_ROOT_PASSWORD: '123456789'
     ports:
-      - 3000:3000
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+# Names our volume
+volumes:
+  my-db:

@@ -22,7 +22,7 @@ export const postResolvers = {
           where: {post: post.get('id')},
           limit: first,
           offset: offset,
-          attributes: context.requestedFields.getFields(info)
+            attributes: context.requestedFields.getFields(info)
         })
         .catch(handleError);
     }
